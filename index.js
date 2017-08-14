@@ -6,15 +6,18 @@ const moment = require('moment');
 console.log("It is", (chalk.blueBright( moment().format("dddd, MMMM Do YYYY, h:mm:ss a"))));
 console.log("It is the", (chalk.magenta( moment().format("DDDo"))),"day of the year.");
 
-  let seconds = (moment().format("s"));
-  let minutes = (moment().format("m"));
+  let seconds = (moment().format("ss"));
+  let minutes = (moment().format("mm"));
   let hours = (moment().format("k"));
+  let minuteSeconds = minutes * 60;
+  let hourSeconds = hours * 3600;
+
   // console.log(seconds);
-  // console.log(minutes);
-  // console.log(hours);
+  // console.log(minuteSeconds, "minute seconds");
+  // console.log(hourSeconds, "hour seconds");
   function total(){
     // console.log( (hours * 60) + (minutes * 60) + seconds);
-  return  (hours * 60) + (minutes * 60) + seconds;
+  return  Number(hourSeconds) + Number(minuteSeconds) + Number(seconds);
   }
   console.log("It is " + chalk.cyan(total()) + " seconds into the day.");
 
